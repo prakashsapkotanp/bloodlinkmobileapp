@@ -6,16 +6,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tbl_user")
-public class User {
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name = "userid")
-    int userId;
-     @Column(name = "username")
+    @Column(name = "user_id")
+    Long userId;
+     @Column(name = "user_name")
     int name;
-     @Column(name = "usrrole")
+     @Column(name = "user_role")
     int role;
+     @Column(name = "user_is_deleted")
+     boolean isDeleted;
 }
