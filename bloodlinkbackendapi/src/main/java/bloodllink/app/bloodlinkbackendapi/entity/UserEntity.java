@@ -11,19 +11,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tbl_user")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Users {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name = "user_id")
-    Long userId;
-     @Column(name = "user_name")
-    int name;
-     @Column(name = "user_role")
-    int role;
-     @Column(name = "user_is_deleted")
-     boolean isDeleted;
+@Table(name = "tbl_users")
+public class UserEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
+	private long userId;
+	@Column(name = "user_username")
+	private String username;
+	@Column(name = "user_password")
+	private String password;
+	public UserEntity(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+	
 }
